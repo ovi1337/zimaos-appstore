@@ -68,20 +68,17 @@ x-casaos:
 
   thumbnail: https://cdn.jsdelivr.net/gh/selfhst/icons/png/folder.png
 
-  screenshot_link:
-    - https://raw.githubusercontent.com/ovi1337/zima-file-manager/main/screenshots/1.png
+  # screenshot_link:   # Add public screenshot URLs here if available
+  #   - https://...
 
   tips:
     before_install:
       en_us: |
-        This app uses a private container image. 
-        You may need to authenticate with GHCR (GitHub Container Registry) 
-        during installation or run:
-        docker login ghcr.io -u ovi1337
+        Recommended: Make the GHCR package public for seamless installation from this store.
+        See the README in this repository for instructions.
       de_de: |
-        Diese App verwendet ein privates Container-Image.
-        Du musst dich ggf. bei GHCR (GitHub Container Registry) anmelden:
-        docker login ghcr.io -u ovi1337
+        Empfehlung: GHCR-Package auf Public stellen für reibungslose Installation aus diesem Store.
+        Siehe README in diesem Repository.
 
   ports:
     - container: "80"

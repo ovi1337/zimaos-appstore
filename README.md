@@ -37,13 +37,16 @@ Zima Explorer is a modern, dual-pane file manager built specifically for ZimaOS.
 - Volume browser
 - Statistics and file details
 
-**Image:** `ghcr.io/ovi1337/zima-file-manager:latest` (private image)
+**Image:** `ghcr.io/ovi1337/zima-file-manager:latest`
 
-> **Note:** Because the container image is hosted privately, you may be prompted for GitHub credentials during installation.  
-> You can authenticate in advance with:
-> ```bash
-> echo "YOUR_GITHUB_PAT" | docker login ghcr.io -u ovi1337 --password-stdin
-> ```
+**Important:** For the best user experience when installing from this 3rd-party store, make the GHCR package public. No login or token will be required.
+
+Instructions:
+1. Go to https://github.com/ovi1337?tab=packages
+2. Open **zima-file-manager**
+3. Package settings → Change visibility → Public
+
+Once done, the app installs directly without any extra steps.
 
 ## Repository Structure
 
@@ -62,6 +65,8 @@ If you want to host your own version of this store:
 2. Update the image reference in `Apps/zima-explorer/docker-compose.yml` if needed.
 3. Update the zip URL when registering the store.
 4. (Optional) Improve metadata, add more screenshots, or translate descriptions.
+
+**Recommended:** Make the GHCR package public for a frictionless store experience.
 
 ## License
 
