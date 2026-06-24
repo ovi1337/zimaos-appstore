@@ -5,7 +5,7 @@ name: zima-explorer
 
 services:
   zima-explorer:
-    image: ghcr.io/ovi1337/zima-file-manager:latest
+    image: ghcr.io/ovi1337/zima-file-manager:v1.0.0
     container_name: zima-explorer
     restart: unless-stopped
 

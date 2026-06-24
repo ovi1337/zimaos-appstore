@@ -25,6 +25,27 @@ Replace `ovi1337` with your username if you forked this repo.
    ```
 4. Confirm.
 
+## Updating the App
+
+To update Zima Explorer to a new version:
+
+1. Make sure you have the latest store:
+   ```bash
+   casaos-cli app-management register app-store \
+     https://github.com/ovi1337/zimaos-appstore/archive/refs/heads/main.zip
+   ```
+
+2. Re-install the app from the App Store (it will use the new image version).
+
+For versioned updates, we use image tags like `:v1.0.0`. To pin a specific version, edit the docker-compose in a custom install or update the store manifest and re-register.
+
+**To release a new version of the app:**
+- Tag the main repo (e.g. `git tag v1.1.0 && git push --tags`)
+- The CI builds the image with the tag.
+- Update `Apps/zima-explorer/docker-compose.yml` image tag in this store repo.
+- Commit, tag the store repo (e.g. `git tag store-v1.1.0`), push tags.
+- Users re-register the store (or use a tagged store zip URL for exact version).
+
 ## About Zima Explorer
 
 Zima Explorer is a modern, dual-pane file manager built specifically for ZimaOS.
