@@ -1,0 +1,105 @@
+# Zima Explorer - Docker Compose for ZimaOS App Store
+# This compose is intended to be used via a 3rd-party ZimaOS App Store.
+
+name: zima-explorer
+
+services:
+  zima-explorer:
+    image: ghcr.io/ovi1337/zima-file-manager:latest
+    container_name: zima-explorer
+    restart: unless-stopped
+
+    ports:
+      - "8088:80"
+
+    environment:
+      - PORT=80
+      # Adjust allowed roots to your ZimaOS storage layout
+      - ALLOWED_ROOTS=/media,/DATA,/mnt,/home,/root
+
+    volumes:
+      # Mount your actual storage locations (read-write recommended)
+      - /media:/media
+      - /DATA:/DATA
+      - /mnt:/mnt
+
+    # Optional: enable if you need broader disk access
+    # privileged: true
+
+# =====================================================
+# ZimaOS / CasaOS App Metadata
+# =====================================================
+x-casaos:
+  architectures:
+    - amd64
+    - arm64
+
+  main: zima-explorer
+
+  author: ovi1337
+  category: Utilities
+  developer: ovi1337
+
+  title:
+    en_us: Zima Explorer
+    de_de: Zima Explorer
+
+  tagline:
+    en_us: Modern dual-pane file manager for ZimaOS
+    de_de: Moderner Zwei-Spalten-Dateimanager für ZimaOS
+
+  description:
+    en_us: |
+      A powerful, modern file manager for ZimaOS featuring:
+      - Dual-pane explorer for easy file operations
+      - Drag & drop with multi-select support
+      - Built-in media viewer (images, video, audio, PDF, text)
+      - Upload, download, rename, delete, copy, move
+      - Volume browser and detailed file statistics
+    de_de: |
+      Ein moderner und leistungsstarker Dateimanager für ZimaOS mit:
+      - Zwei-Spalten-Explorer für einfache Dateioperationen
+      - Drag & Drop mit Mehrfachauswahl
+      - Integrierter Medien-Viewer (Bilder, Video, Audio, PDF, Text)
+      - Upload, Download, Umbenennen, Löschen, Kopieren, Verschieben
+      - Datenträger-Browser und detaillierte Datei-Statistiken
+
+  icon: https://cdn.jsdelivr.net/gh/selfhst/icons/png/folder.png
+
+  thumbnail: https://cdn.jsdelivr.net/gh/selfhst/icons/png/folder.png
+
+  screenshot_link:
+    - https://raw.githubusercontent.com/ovi1337/zima-file-manager/main/screenshots/1.png
+
+  tips:
+    before_install:
+      en_us: |
+        This app uses a private container image. 
+        You may need to authenticate with GHCR (GitHub Container Registry) 
+        during installation or run:
+        docker login ghcr.io -u ovi1337
+      de_de: |
+        Diese App verwendet ein privates Container-Image.
+        Du musst dich ggf. bei GHCR (GitHub Container Registry) anmelden:
+        docker login ghcr.io -u ovi1337
+
+  ports:
+    - container: "80"
+      description:
+        en_us: Web Interface
+        de_de: Web-Oberfläche
+      protocol: tcp
+
+  volumes:
+    - container: /media
+      description:
+        en_us: Main ZimaOS storage
+      host: /media
+    - container: /DATA
+      description:
+        en_us: ZimaOS internal data
+      host: /DATA
+    - container: /mnt
+      description:
+        en_us: Additional mounts
+      host: /mnt
