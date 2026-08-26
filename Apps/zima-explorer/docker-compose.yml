@@ -19,9 +19,9 @@ services:
 
     volumes:
       # Mount your actual storage locations (read-write recommended)
-      - /media:/media
-      - /DATA:/DATA
-      - /mnt:/mnt
+      - /media:/media:rslave
+      - /DATA:/DATA:rslave
+      - /mnt:/mnt:rslave
 
     # Optional: enable if you need broader disk access
     # privileged: true
