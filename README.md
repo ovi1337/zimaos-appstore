@@ -1,6 +1,16 @@
-# ZimaOS App Store - Zima Explorer
+# ZimaOS App Store (ovi1337)
 
-This repository provides **Zima Explorer** as a 3rd-party app for ZimaOS (and CasaOS).
+This repository provides curated 3rd-party apps for **ZimaOS** and **CasaOS**.
+
+## 📦 Included Apps
+
+| App | Description | Category | Port | Image |
+| --- | --- | --- | --- | --- |
+| **Zima Explorer** | Modern dual-pane file manager for ZimaOS | Utilities | `8088` | `ghcr.io/ovi1337/zima-file-manager:v1.0.0` |
+| **DeepSeek Harness** | Open-source agent harness developed by DeepSeek AI | AI | `3080` | `ghcr.io/smanx/deepseek-harness:latest` |
+| **Gemini CLI** | Google Gemini CLI inside a ttyd browser terminal | Developer | `7682` | `ghcr.io/coolcow/gemini:latest` |
+
+---
 
 ## How to add this store to ZimaOS
 
@@ -18,84 +28,53 @@ Replace `ovi1337` with your username if you forked this repo.
 ### Option 2: Via App Store UI
 
 1. Open the App Store in ZimaOS.
-2. Click **Add Source** (or "More Apps").
+2. Click **Add Source** (or "More Apps" / Settings).
 3. Paste the following URL:
    ```
    https://github.com/ovi1337/zimaos-appstore/archive/refs/heads/main.zip
    ```
 4. Confirm.
 
-## Updating the App
+---
 
-To update Zima Explorer to a new version:
+## Apps Overview
 
-1. Make sure you have the latest store:
-   ```bash
-   casaos-cli app-management register app-store \
-     https://github.com/ovi1337/zimaos-appstore/archive/refs/heads/main.zip
-   ```
+### 📁 Zima Explorer
+A powerful, modern dual-pane file manager built specifically for ZimaOS.
+- **Features:** Dual-pane explorer, Drag & Drop, Media preview (images, video, audio, PDF, text), File operations (upload, download, rename, delete, copy, move), Volume browser.
+- **Port:** `8088` (maps to container `80`)
+- **Image:** `ghcr.io/ovi1337/zima-file-manager:v1.0.0`
 
-2. Re-install the app from the App Store (it will use the new image version).
+### 🤖 DeepSeek Harness (dsh)
+An open-source agent framework developed by DeepSeek AI ("Everything is a Plugin").
+- **Features:** AI agent harness with workspace mounting for documents, downloads, media, and gallery.
+- **Port:** `3080`
+- **Image:** `ghcr.io/smanx/deepseek-harness:latest`
 
-For versioned updates, we use image tags like `:v1.0.0`. To pin a specific version, edit the docker-compose in a custom install or update the store manifest and re-register.
+### 💻 Gemini CLI
+Run the Google Gemini CLI directly inside a web browser terminal (powered by ttyd).
+- **Features:** Web-based terminal access for Gemini CLI directly on your ZimaOS dashboard.
+- **Port:** `7682` (maps to container `7681`)
+- **Image:** `ghcr.io/coolcow/gemini:latest`
+- **Setup:** Insert your Gemini API key from [Google AI Studio](https://aistudio.google.com/app/apikeys) in the app settings before starting.
 
-**To release a new version of the app:**
-- Tag the main repo (e.g. `git tag v1.1.0 && git push --tags`)
-- The CI builds the image with the tag.
-- Update `Apps/zima-explorer/docker-compose.yml` image tag in this store repo.
-- Commit, tag the store repo (e.g. `git tag store-v1.1.0`), push tags.
-- Users re-register the store (or use a tagged store zip URL for exact version).
-
-## About Zima Explorer
-
-Zima Explorer is a modern, dual-pane file manager built specifically for ZimaOS.
-
-**Features:**
-- Dual-pane explorer
-- Drag & Drop + Multiselect
-- Media preview (images, video, audio, PDF, text)
-- Full file operations (upload, download, rename, delete, copy, move)
-- Volume browser
-- Statistics and file details
-
-**Image:** `ghcr.io/ovi1337/zima-file-manager:latest`
-
-**Important:** For the best user experience when installing from this 3rd-party store, make the GHCR package public. No login or token will be required.
-
-Instructions:
-1. Go to https://github.com/ovi1337?tab=packages
-2. Open **zima-file-manager**
-3. Package settings → Change visibility → Public
-
-Once done, the app installs directly without any extra steps.
+---
 
 ## Repository Structure
 
 ```
 zimaos-appstore/
 └── Apps/
+    ├── DeepSeekHarness/
+    │   └── docker-compose.yml
+    ├── gemini-cli/
+    │   └── docker-compose.yml
     └── zima-explorer/
-        └── docker-compose.yml     # Contains full x-casaos metadata
+        └── docker-compose.yml
 ```
 
-## For Developers
-
-If you want to host your own version of this store:
-
-1. Fork this repository.
-2. Update the image reference in `Apps/zima-explorer/docker-compose.yml` if needed.
-3. Update the zip URL when registering the store.
-4. (Optional) Improve metadata, add more screenshots, or translate descriptions.
-
-**Recommended:** Make the GHCR package public for a frictionless store experience.
+---
 
 ## License
 
-The app definition in this repository is provided under MIT.
-
-The actual Zima Explorer application source code lives in a separate (private) repository.
-
-## Links
-
-- Main project: https://github.com/ovi1337/zima-file-manager
-- Docker image: ghcr.io/ovi1337/zima-file-manager
+The app definitions in this repository are provided under the MIT License.
