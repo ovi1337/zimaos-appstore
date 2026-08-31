@@ -5,7 +5,7 @@ name: zima-explorer
 
 services:
   zima-explorer:
-    image: ghcr.io/ovi1337/zima-file-manager:v1.0.0
+    image: ghcr.io/ovi1337/zima-file-manager:latest
     container_name: zima-explorer
     restart: unless-stopped
 
@@ -81,7 +81,7 @@ x-casaos:
         Siehe README in diesem Repository.
 
   ports:
-    - container: "80"
+    - container: "8088"
       description:
         en_us: Web Interface
         de_de: Web-Oberfläche
