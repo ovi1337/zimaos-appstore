@@ -1,0 +1,119 @@
+name: dsh-harness
+
+networks:
+  default:
+    name: dsh-harness_default
+    ipam: {}
+    external: false
+
+services:
+  dsh:
+    command: null
+    container_name: dsh-harness
+    deploy:
+      resources:
+        limits:
+          memory: 4GB
+          cpus: "1.00"
+        reservations:
+          memory: 256MB
+          cpus: "0.00"
+      placement: {}
+    entrypoint: null
+    environment:
+      OPENAI_API_KEY: ollama-local-dummy
+      # Optional: Proxy Authentication
+      # PROXY_USERNAME: your_proxy_username
+      # PROXY_PASSWORD: your_proxy_password
+    image: ghcr.io/smanx/deepseek-harness:latest
+    labels:
+      icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/png/deepseek.png
+    networks:
+      - default
+    ports:
+      - mode: ingress
+        target: 3080
+        published: "3080"
+        protocol: tcp
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /DATA/AppData/dsh-harness
+        target: /root/.dsh
+      - type: bind
+        source: /DATA/Documents
+        target: /workspace/Documents
+      - type: bind
+        source: /DATA/Downloads
+        target: /workspace/Downloads
+      - type: bind
+        source: /DATA/Media
+        target: /workspace/Media
+      - type: bind
+        source: /DATA/Gallery
+        target: /workspace/Gallery
+      - type: bind
+        source: /media/ZimaOS-HD
+        target: /zimaos
+
+x-casaos:
+  architectures:
+    - amd64
+    - arm64
+  author: ZimaOS Team
+  category: AI
+  description:
+    ar_SA: DeepSeek Harness (dsh) هو إطار عمل وكيل مفتوح المصدر تم تطويره بواسطة DeepSeek AI.
+    de_DE: DeepSeek Harness (dsh) ist ein Open-Source-Agent-Harness, entwickelt von DeepSeek AI.
+    en_US: DeepSeek Harness (dsh) is an open-source agent harness developed by DeepSeek AI.
+    es_ES: DeepSeek Harness (dsh) es un framework de agente de código abierto desarrollado por DeepSeek AI.
+    fr_FR: DeepSeek Harness (dsh) est un framework d'agent open-source développé par DeepSeek AI.
+    hu_HU: A DeepSeek Harness (dsh) egy nyílt forráskódú agent harness, amelyet a DeepSeek AI fejlesztett ki.
+    it_IT: DeepSeek Harness (dsh) è un framework di agente open-source sviluppato da DeepSeek AI.
+    pl_PL: DeepSeek Harness (dsh) to framework agenta open-source opracowany przez DeepSeek AI.
+    pt_BR: DeepSeek Harness (dsh) é um framework de agente de código aberto desenvolvido pela DeepSeek AI.
+    ru_RU: DeepSeek Harness (dsh) — это фреймворк агента с открытым исходным кодом, разработанный DeepSeek AI.
+    sv_SE: DeepSeek Harness (dsh) är ett öppen källkods-agent-harness utvecklat av DeepSeek AI.
+    uk_UA: DeepSeek Harness (dsh) — це фреймворк агента з відкритим вихідним кодом, розроблений DeepSeek AI.
+    zh_CN: DeepSeek Harness (dsh) 是由 DeepSeek AI 开发的开源智能体框架。
+  developer: DeepSeek
+  docs: https://api-docs.deepseek.com/
+  hostname: ""
+  icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/png/deepseek.png
+  id: org.icewhale.dsh-harness
+  index: /
+  is_uncontrolled: false
+  main: dsh
+  port_map: "3080"
+  release_notes: ""
+  repo: https://github.com/deepseek-ai/deepseek-harness
+  scheme: http
+  screenshot_link:
+    - https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/DeepSeekHarness/screenshot-1.png
+    - https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/DeepSeekHarness/screenshot-2.png
+    - https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/DeepSeekHarness/screenshot-3.png
+    - https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/DeepSeekHarness/screenshot-4.png
+  store_app_id: dsh-harness
+  support: https://github.com/deepseek-ai/deepseek-harness/discussions
+  tagline:
+    ar_SA: DeepSeek Harness ” كل شيء هو مكون إضافي"
+    de_DE: DeepSeek Harness "Alles ist ein Plugin".
+    en_US: DeepSeek Harness “Everything is a Plugin“.
+    es_ES: DeepSeek Harness "Todo es un plugin".
+    fr_FR: DeepSeek Harness "Tout est un plugin".
+    hu_HU: DeepSeek Harness "Minden egy plugin".
+    it_IT: DeepSeek Harness "Tutto è un plugin".
+    pl_PL: DeepSeek Harness "Wszystko to wtyczka".
+    pt_BR: DeepSeek Harness "Tudo é um plugin".
+    ru_RU: DeepSeek Harness "Всё — это плагин".
+    sv_SE: DeepSeek Harness "Allt är ett plugin".
+    uk_UA: DeepSeek Harness "Все — це плагін".
+    zh_CN: DeepSeek Harness ”一切皆插件“。
+  thumbnail: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/DeepSeekHarness/thumbnail.png
+  tips: {}
+  title:
+    custom: DeepSeekHarness
+    en_US: DeepSeekHarness
+  update_at: 2026-08-19T00:00:00Z
+  version: 0.1.0
+  website: https://www.deepseek.com

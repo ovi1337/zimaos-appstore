@@ -1,0 +1,94 @@
+name: gemini-cli
+
+services:
+  gemini-cli:
+    command: null
+    container_name: gemini-cli
+    deploy:
+      resources:
+        limits:
+          memory: 4GB
+          cpus: "1.00"
+        reservations:
+          memory: 256MB
+          cpus: "0.00"
+      placement: {}
+    entrypoint: null
+    environment:
+      GEMINI_API_KEY: YOUR_GEMINI_API_KEY
+      GEMINI_GID: "1000"
+      GEMINI_UID: "1000"
+      NODE_OPTIONS: --no-deprecation
+      RUN_MODE: ttyd
+      TZ: Europe/Berlin
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - wget -q -O /dev/null http://127.0.0.1:7681/ || exit 1
+      timeout: 5s
+      interval: 30s
+      retries: 5
+      start_period: 20s
+    image: ghcr.io/coolcow/gemini:latest
+    labels:
+      icon: https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg
+    network_mode: bridge
+    ports:
+      - target: 7681
+        published: "7682"
+        protocol: tcp
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    stdin_open: true
+    tty: true
+    volumes:
+      - type: bind
+        source: /DATA/AppData/gemini-cli/home
+        target: /home/gemini
+      - type: bind
+        source: /DATA/AppData/gemini-cli/workspace
+        target: /workspace
+      - type: bind
+        source: /media/ZimaOS-HD
+        target: /zimaos
+    working_dir: /workspace
+
+x-casaos:
+  architectures:
+    - amd64
+    - arm64
+  author: self
+  category: Developer
+  description:
+    de_de: Startet die Google Gemini CLI in einem ttyd-Web-Terminal, direkt aus dem ZimaOS-Dashboard.
+    en_us: Runs Google Gemini CLI inside a ttyd web terminal so you can use it from the ZimaOS dashboard.
+  developer: Google / coolcow
+  hostname: ""
+  icon: https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg
+  id: com.google.gemini-cli
+  index: /
+  is_uncontrolled: false
+  main: gemini-cli
+  port_map: "7682"
+  scheme: http
+  store_app_id: gemini-cli
+  tagline:
+    de_de: Gemini CLI im Web-Terminal
+    en_us: Gemini CLI in a browser terminal
+  tips:
+    before_install:
+      de_de: |
+        1. API-Key unter https://aistudio.google.com/app/apikeys erzeugen.
+        2. DEIN_GEMINI_API_KEY_HIER in GEMINI_API_KEY ersetzen.
+        3. http://<ZimaOS-IP>:7681 öffnen und `gemini` eingeben.
+        4. Port 7681 nicht ungeschützt ins Internet legen.
+      en_us: |
+        1. Create an API key at https://aistudio.google.com/app/apikeys
+        2. Replace DEIN_GEMINI_API_KEY_HIER in GEMINI_API_KEY before starting.
+        3. Open http://<ZimaOS-IP>:7682 and type `gemini`.
+        4. Do not expose port 7682 to the public internet without extra protection.
+  title:
+    custom: Gemini CLI
+    de_de: Gemini CLI
+    en_us: Gemini CLI
