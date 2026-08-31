@@ -22,8 +22,9 @@ services:
     entrypoint: null
     environment:
       OPENAI_API_KEY: ollama-local-dummy
-      PROXY_PASSWORD: IMCgcDNlzCsBmcM60l6FsWXJRl8a
-      PROXY_USERNAME: ovi
+      # Optional: Proxy Authentication
+      # PROXY_USERNAME: your_proxy_username
+      # PROXY_PASSWORD: your_proxy_password
     image: ghcr.io/smanx/deepseek-harness:latest
     labels:
       icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/png/deepseek.png
