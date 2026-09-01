@@ -14,18 +14,20 @@ services:
       resources:
         limits:
           memory: 4GB
-          cpus: "1.00"
+          cpus: "2.00"
         reservations:
-          memory: 256MB
-          cpus: "0.00"
+          memory: 512MB
+          cpus: "0.25"
       placement: {}
     entrypoint: null
     environment:
       OPENAI_API_KEY: ollama-local-dummy
-      # Optional: Proxy Authentication
+      # Optional: API Keys & Auth
+      # DEEPSEEK_API_KEY: your_deepseek_key
       # PROXY_USERNAME: your_proxy_username
       # PROXY_PASSWORD: your_proxy_password
-    image: ghcr.io/smanx/deepseek-harness:latest
+      DSH_WORKSPACE: /workspace/Documents
+    image: ghcr.io/src-one/deepseek-harness:latest
     labels:
       icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/png/deepseek.png
     networks:
@@ -60,24 +62,24 @@ x-casaos:
   architectures:
     - amd64
     - arm64
-  author: ZimaOS Team
+  author: src-one
   category: AI
   description:
-    ar_SA: DeepSeek Harness (dsh) هو إطار عمل وكيل مفتوح المصدر تم تطويره بواسطة DeepSeek AI.
-    de_DE: DeepSeek Harness (dsh) ist ein Open-Source-Agent-Harness, entwickelt von DeepSeek AI.
-    en_US: DeepSeek Harness (dsh) is an open-source agent harness developed by DeepSeek AI.
-    es_ES: DeepSeek Harness (dsh) es un framework de agente de código abierto desarrollado por DeepSeek AI.
-    fr_FR: DeepSeek Harness (dsh) est un framework d'agent open-source développé par DeepSeek AI.
-    hu_HU: A DeepSeek Harness (dsh) egy nyílt forráskódú agent harness, amelyet a DeepSeek AI fejlesztett ki.
-    it_IT: DeepSeek Harness (dsh) è un framework di agente open-source sviluppato da DeepSeek AI.
-    pl_PL: DeepSeek Harness (dsh) to framework agenta open-source opracowany przez DeepSeek AI.
-    pt_BR: DeepSeek Harness (dsh) é um framework de agente de código aberto desenvolvido pela DeepSeek AI.
-    ru_RU: DeepSeek Harness (dsh) — это фреймворк агента с открытым исходным кодом, разработанный DeepSeek AI.
-    sv_SE: DeepSeek Harness (dsh) är ett öppen källkods-agent-harness utvecklat av DeepSeek AI.
-    uk_UA: DeepSeek Harness (dsh) — це фреймворк агента з відкритим вихідним кодом, розроблений DeepSeek AI.
-    zh_CN: DeepSeek Harness (dsh) 是由 DeepSeek AI 开发的开源智能体框架。
-  developer: DeepSeek
-  docs: https://api-docs.deepseek.com/
+    ar_SA: DeepSeek Harness (dsh) هو إطار عمل وكيل مفتوح المصدر مزود ببحث Google بدون مفتاح عبر Playwright وأوضاع النماذج القابلة للتحديد.
+    de_DE: DeepSeek Harness (dsh) ist ein Open-Source-Agenten-Framework mit schlüsselloser Google-Websuche via Playwright und wählbaren Modell-Modi.
+    en_US: DeepSeek Harness (dsh) open-source agent harness with keyless Google Web Search via Playwright and Selectable Model Modes.
+    es_ES: DeepSeek Harness (dsh) es un framework de agente de código abierto con búsqueda web de Google sin clave a través de Playwright y modos de modelo seleccionables.
+    fr_FR: DeepSeek Harness (dsh) est un framework d'agent open-source avec recherche Web Google sans clé via Playwright et modes de modèles sélectionnables.
+    hu_HU: A DeepSeek Harness (dsh) egy nyílt forráskódú agent harness kulcs nélküli Google kereséssel Playwright-on keresztül és választható modellmódokkal.
+    it_IT: DeepSeek Harness (dsh) è un framework di agente open-source con ricerca Web Google senza chiave tramite Playwright e modalità modello selezionabili.
+    pl_PL: DeepSeek Harness (dsh) to framework agenta open-source z wyszukiwaniem w Google bez klucza przez Playwright i wybieralnymi trybami modeli.
+    pt_BR: DeepSeek Harness (dsh) é um framework de agente de código aberto com pesquisa Google sem chave via Playwright e modos de modelo selecionáveis.
+    ru_RU: DeepSeek Harness (dsh) — фреймворк агента с открытым исходным кодом, поиском в Google через Playwright и выбором режимов модели.
+    sv_SE: DeepSeek Harness (dsh) är ett öppen källkods-agent-harness med nyckellös Google-webbsökning via Playwright och valbara modelllägen.
+    uk_UA: DeepSeek Harness (dsh) — це фреймворк агента з відкритим вихідним кодом, пошуком Google через Playwright та вибором режимів моделей.
+    zh_CN: DeepSeek Harness (dsh) 是集成了 Playwright 免密钥谷歌搜索与可选择模型模式的开源智能体框架。
+  developer: src-one / DeepSeek
+  docs: https://github.com/src-one/deepseek-harness-docker
   hostname: ""
   icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/png/deepseek.png
   id: org.icewhale.dsh-harness
@@ -85,8 +87,8 @@ x-casaos:
   is_uncontrolled: false
   main: dsh
   port_map: "3080"
-  release_notes: ""
-  repo: https://github.com/deepseek-ai/deepseek-harness
+  release_notes: "Updated to DeepSeek Harness 0.1.2-alpha.2 with integrated Playwright Google Web Search and Selectable Model Modes."
+  repo: https://github.com/src-one/deepseek-harness-docker
   scheme: http
   screenshot_link:
     - https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/DeepSeekHarness/screenshot-1.png
@@ -94,26 +96,34 @@ x-casaos:
     - https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/DeepSeekHarness/screenshot-3.png
     - https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/DeepSeekHarness/screenshot-4.png
   store_app_id: dsh-harness
-  support: https://github.com/deepseek-ai/deepseek-harness/discussions
+  support: https://github.com/src-one/deepseek-harness-docker/issues
   tagline:
-    ar_SA: DeepSeek Harness ” كل شيء هو مكون إضافي"
-    de_DE: DeepSeek Harness "Alles ist ein Plugin".
-    en_US: DeepSeek Harness “Everything is a Plugin“.
-    es_ES: DeepSeek Harness "Todo es un plugin".
-    fr_FR: DeepSeek Harness "Tout est un plugin".
-    hu_HU: DeepSeek Harness "Minden egy plugin".
-    it_IT: DeepSeek Harness "Tutto è un plugin".
-    pl_PL: DeepSeek Harness "Wszystko to wtyczka".
-    pt_BR: DeepSeek Harness "Tudo é um plugin".
-    ru_RU: DeepSeek Harness "Всё — это плагин".
-    sv_SE: DeepSeek Harness "Allt är ett plugin".
-    uk_UA: DeepSeek Harness "Все — це плагін".
-    zh_CN: DeepSeek Harness ”一切皆插件“。
+    ar_SA: DeepSeek Harness مع بحث Google بدون مفتاح ووضع النماذج
+    de_DE: DeepSeek Harness mit Playwright Google-Websuche & Modell-Modi
+    en_US: DeepSeek Harness with Playwright Google Search & Model Modes
+    es_ES: DeepSeek Harness con búsqueda de Google en Playwright y modos de modelo
+    fr_FR: DeepSeek Harness avec recherche Google Playwright et modes de modèle
+    hu_HU: DeepSeek Harness Playwright Google kereséssel és modellmódokkal
+    it_IT: DeepSeek Harness con ricerca Google Playwright e modalità modello
+    pl_PL: DeepSeek Harness z wyszukiwaniem Playwright Google i trybami modeli
+    pt_BR: DeepSeek Harness com pesquisa Google Playwright e modos de modelo
+    ru_RU: DeepSeek Harness с поиском Google через Playwright и режимами модели
+    sv_SE: DeepSeek Harness med Playwright Google-sökning och modelllägen
+    uk_UA: DeepSeek Harness з пошуком Google Playwright та режимами моделей
+    zh_CN: DeepSeek Harness 具备 Playwright 谷歌搜索与模型模式。
   thumbnail: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/DeepSeekHarness/thumbnail.png
-  tips: {}
+  tips:
+    before_install:
+      de_DE: |
+        - Setze deinen OPENAI_API_KEY oder DEEPSEEK_API_KEY falls benötigt.
+        - Die Websuche funktioniert schlüssellos direkt über lokales Playwright Chromium.
+      en_US: |
+        - Set your OPENAI_API_KEY or DEEPSEEK_API_KEY if needed.
+        - Web search is powered keyless by local Playwright Chromium.
   title:
     custom: DeepSeekHarness
     en_US: DeepSeekHarness
-  update_at: 2026-08-19T00:00:00Z
-  version: 0.1.0
-  website: https://www.deepseek.com
+    de_DE: DeepSeekHarness
+  update_at: 2026-09-01T00:00:00Z
+  version: 0.1.2-alpha.2
+  website: https://github.com/src-one/deepseek-harness-docker

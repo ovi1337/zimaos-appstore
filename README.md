@@ -7,7 +7,7 @@ This repository provides curated 3rd-party apps for **ZimaOS** and **CasaOS**.
 | App | Description | Category | Port | Image |
 | --- | --- | --- | --- | --- |
 | **Zima Explorer** | Modern dual-pane file manager for ZimaOS | Utilities | `8088` | `ghcr.io/ovi1337/zima-file-manager:v1.0.0` |
-| **DeepSeek Harness** | Open-source agent harness developed by DeepSeek AI | AI | `3080` | `ghcr.io/smanx/deepseek-harness:latest` |
+| **DeepSeek Harness** | AI Agent Harness with Playwright Google Search & Model Presets | AI | `3080` | `ghcr.io/src-one/deepseek-harness:latest` |
 | **Gemini CLI** | Google Gemini CLI inside a ttyd browser terminal | Developer | `7682` | `ghcr.io/coolcow/gemini:latest` |
 
 ---
@@ -46,10 +46,10 @@ A powerful, modern dual-pane file manager built specifically for ZimaOS.
 - **Image:** `ghcr.io/ovi1337/zima-file-manager:v1.0.0`
 
 ### 🤖 DeepSeek Harness (dsh)
-An open-source agent framework developed by DeepSeek AI ("Everything is a Plugin").
-- **Features:** AI agent harness with workspace mounting for documents, downloads, media, and gallery.
+An open-source agent framework developed by DeepSeek AI ("Everything is a Plugin") with integrated keyless Google Web Search (Playwright) and Selectable Model Modes.
+- **Features:** AI agent harness with Playwright Google Search, selectable model modes, and workspace mounting for documents, downloads, media, and gallery.
 - **Port:** `3080`
-- **Image:** `ghcr.io/smanx/deepseek-harness:latest`
+- **Image:** `ghcr.io/src-one/deepseek-harness:latest`
 
 ### 💻 Gemini CLI
 Run the Google Gemini CLI directly inside a web browser terminal (powered by ttyd).
