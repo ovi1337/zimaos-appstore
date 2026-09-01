@@ -41,22 +41,22 @@ x-casaos:
   developer: ovi1337
 
   title:
-    en_us: Zima Explorer
-    de_de: Zima Explorer
+    en_US: Zima Explorer
+    de_DE: Zima Explorer
 
   tagline:
-    en_us: Modern dual-pane file manager for ZimaOS
-    de_de: Moderner Zwei-Spalten-Dateimanager für ZimaOS
+    en_US: Modern dual-pane file manager for ZimaOS
+    de_DE: Moderner Zwei-Spalten-Dateimanager für ZimaOS
 
   description:
-    en_us: |
+    en_US: |
       A powerful, modern file manager for ZimaOS featuring:
       - Dual-pane explorer for easy file operations
       - Drag & drop with multi-select support
       - Built-in media viewer (images, video, audio, PDF, text)
       - Upload, download, rename, delete, copy, move
       - Volume browser and detailed file statistics
-    de_de: |
+    de_DE: |
       Ein moderner und leistungsstarker Dateimanager für ZimaOS mit:
       - Zwei-Spalten-Explorer für einfache Dateioperationen
       - Drag & Drop mit Mehrfachauswahl
@@ -64,29 +64,29 @@ x-casaos:
       - Upload, Download, Umbenennen, Löschen, Kopieren, Verschieben
       - Datenträger-Browser und detaillierte Datei-Statistiken
 
-  icon: https://cdn.jsdelivr.net/gh/selfhst/icons/png/folder.png
-  thumbnail: https://cdn.jsdelivr.net/gh/selfhst/icons/png/folder.png
+  icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/filebrowser.png
+  thumbnail: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/filebrowser.png
 
   tips:
     before_install:
-      en_us: |
+      en_US: |
         Recommended: Make the GHCR package public for seamless installation from this store.
         See the README in this repository for instructions.
-      de_de: |
+      de_DE: |
         Empfehlung: GHCR-Package auf Public stellen für reibungslose Installation aus diesem Store.
         Siehe README in diesem Repository.
 
   ports:
     - container: "8088"
       description:
-        en_us: Web Interface
-        de_de: Web-Oberfläche
+        en_US: Web Interface
+        de_DE: Web-Oberfläche
       protocol: tcp
 
   volumes:
     - container: /media
       description:
-        en_us: Main ZimaOS storage
+        en_US: Main ZimaOS storage
       host: /media
     - container: /DATA
       description:
@@ -94,5 +94,5 @@ x-casaos:
       host: /DATA
     - container: /mnt
       description:
-        en_us: Additional mounts
+        en_US: Additional mounts
       host: /mnt
