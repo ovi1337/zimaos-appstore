@@ -1,0 +1,14 @@
+[
+  {
+    "name": "AI",
+    "font": "casa-ai"
+  },
+  {
+    "name": "Developer",
+    "font": "casa-developer"
+  },
+  {
+    "name": "Utilities",
+    "font": "casa-utilities"
+  }
+]

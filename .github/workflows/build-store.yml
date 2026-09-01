@@ -1,0 +1,47 @@
+name: Build and Deploy App Store V2
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'Apps/**'
+      - '*.json'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    name: Build V2 Store & Deploy to GitHub Pages
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Build ZimaOS AppStore V2 dist
+        uses: IceWhaleTech/build-appstore-action@v1
+        with:
+          source: .
+          output: dist
+          base-url: https://ovi1337.github.io/zimaos-appstore
+
+      - name: Ensure root store.json in dist
+        run: |
+          if [ ! -f dist/store.json ] && [ -f store.json ]; then
+            cp store.json dist/
+          fi
+
+      - name: Deploy to GitHub Pages (gh-pages branch)
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: gh-pages
+          force_orphan: true

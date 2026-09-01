@@ -1,6 +1,8 @@
 # ZimaOS App Store (ovi1337)
 
-This repository provides curated 3rd-party apps for **ZimaOS** and **CasaOS**.
+Curated 3rd-party App Store for **ZimaOS** and **CasaOS** supporting both **Protocol V2 (`store.json`)** and **Legacy V1 (`main.zip`)**.
+
+---
 
 ## 📦 Included Apps
 
@@ -12,32 +14,44 @@ This repository provides curated 3rd-party apps for **ZimaOS** and **CasaOS**.
 
 ---
 
-## How to add this store to ZimaOS
+## 🚀 Adding the Store to ZimaOS / CasaOS
 
-### Option 1: Via CLI (recommended)
+### Option 1: Modern Protocol V2 URL (Recommended)
 
-Enable the command line in ZimaOS settings (Developer Options) and run:
+In modern ZimaOS & CasaOS (v0.4.4+), paste the **`store.json` URL** directly into the App Store source input:
 
-```bash
-casaos-cli app-management register app-store \
-  https://github.com/ovi1337/zimaos-appstore/archive/refs/heads/main.zip
+```
+https://ovi1337.github.io/zimaos-appstore/store.json
 ```
 
-Replace `ovi1337` with your username if you forked this repo.
+*Alternative Raw GitHub URL:*
+```
+https://raw.githubusercontent.com/ovi1337/zimaos-appstore/main/store.json
+```
 
-### Option 2: Via App Store UI
+---
 
-1. Open the App Store in ZimaOS.
-2. Click **Add Source** (or "More Apps" / Settings).
+### Option 2: Legacy V1 ZIP Archive
+
+#### Via App Store UI:
+1. Open the App Store in ZimaOS / CasaOS.
+2. Click **Add Source** (or "More Apps" / Store Settings).
 3. Paste the following URL:
    ```
    https://github.com/ovi1337/zimaos-appstore/archive/refs/heads/main.zip
    ```
 4. Confirm.
 
+#### Via CLI:
+Enable Developer Options / CLI in ZimaOS settings and run:
+```bash
+casaos-cli app-management register app-store \
+  https://github.com/ovi1337/zimaos-appstore/archive/refs/heads/main.zip
+```
+
 ---
 
-## Apps Overview
+## 📱 Apps Overview
 
 ### 📁 Zima Explorer
 A powerful, modern dual-pane file manager built specifically for ZimaOS.
@@ -60,21 +74,30 @@ Run the Google Gemini CLI directly inside a web browser terminal (powered by tty
 
 ---
 
-## Repository Structure
+## 🏗️ Repository Structure
 
 ```
 zimaos-appstore/
-└── Apps/
-    ├── DeepSeekHarness/
-    │   └── docker-compose.yml
-    ├── gemini-cli/
-    │   └── docker-compose.yml
-    └── zima-explorer/
-        └── docker-compose.yml
+├── store.json                      # V2 Store Definition
+├── store-config.json               # V2 Store Metadata Source
+├── supported-languages.json        # Supported Locales
+├── category-list.json              # Category taxonomy
+├── recommend-list.json             # Featured apps
+├── Apps/
+│   ├── DeepSeekHarness/
+│   │   └── docker-compose.yml
+│   ├── gemini-cli/
+│   │   └── docker-compose.yml
+│   └── zima-explorer/
+│       └── docker-compose.yml
+└── .github/workflows/
+    ├── build-store.yml             # V2 Build & Pages Deployment
+    ├── release.yml
+    └── validate.yml
 ```
 
 ---
 
-## License
+## 📄 License
 
 The app definitions in this repository are provided under the MIT License.
