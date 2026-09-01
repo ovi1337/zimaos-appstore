@@ -23,18 +23,18 @@ services:
       - /DATA:/DATA:rslave
       - /mnt:/mnt:rslave
 
-    # Optional: enable if you need broader disk access
-    # privileged: true
-
 # =====================================================
 # ZimaOS / CasaOS App Metadata
 # =====================================================
 x-casaos:
   architectures:
     - amd64
-    - arm64
-
+  id: com.ovi1337.zima-explorer
   main: zima-explorer
+  port_map: "8088"
+  scheme: http
+  index: /
+  version: 1.0.0
 
   author: ovi1337
   category: Utilities
@@ -65,11 +65,7 @@ x-casaos:
       - Datenträger-Browser und detaillierte Datei-Statistiken
 
   icon: https://cdn.jsdelivr.net/gh/selfhst/icons/png/folder.png
-
   thumbnail: https://cdn.jsdelivr.net/gh/selfhst/icons/png/folder.png
-
-  # screenshot_link:   # Add public screenshot URLs here if available
-  #   - https://...
 
   tips:
     before_install:
