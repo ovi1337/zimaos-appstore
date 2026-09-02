@@ -1,0 +1,26 @@
+{
+  "architectures": [
+    "amd64"
+  ],
+  "author": "self",
+  "category": "Developer",
+  "description": "Runs Google Gemini CLI inside a ttyd web terminal so you can use it from the ZimaOS dashboard.",
+  "developer": "Google / coolcow",
+  "hostname": "",
+  "is_uncontrolled": false,
+  "tagline": "Gemini CLI in a browser terminal",
+  "tips": {
+    "before_install": "1. Create an API key at https://aistudio.google.com/app/apikeys\n2. Replace DEIN_GEMINI_API_KEY_HIER in GEMINI_API_KEY before starting.\n3. Open http://<ZimaOS-IP>:7682 and type `gemini`.\n4. Do not expose port 7682 to the public internet without extra protection.\n"
+  },
+  "title": "Gemini CLI",
+  "base_url": "https://cdn.jsdelivr.net/gh/ovi1337/zimaos-appstore@gh-pages",
+  "id": "com.google.gemini-cli",
+  "version": "",
+  "categories": [
+    "developer"
+  ],
+  "min_memory": 268435456,
+  "min_image_size": {
+    "amd64": 428778666
+  }
+}

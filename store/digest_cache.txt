@@ -1,0 +1,2 @@
+ghcr.io/coolcow/gemini:latest sha256:3679371e180182602094c799a833f3a4d7066d932aa3b5db51c0c1f994cf2b0d
+ghcr.io/ovi1337/zima-file-manager:latest sha256:4faf2f1dfca73c5b87a83ae228e7332cddd24641d0414f83255329e476a0abc7

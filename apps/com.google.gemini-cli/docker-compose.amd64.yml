@@ -1,0 +1,65 @@
+name: gemini-cli
+
+services:
+  gemini-cli:
+    command:
+    container_name: gemini-cli
+    deploy:
+      resources:
+        limits:
+          memory: 4GB
+          cpus: "1.00"
+        reservations:
+          memory: 256MB
+          cpus: "0.00"
+      placement: {}
+    entrypoint:
+    environment:
+      GEMINI_API_KEY: YOUR_GEMINI_API_KEY
+      GEMINI_GID: "1000"
+      GEMINI_UID: "1000"
+      NODE_OPTIONS: --no-deprecation
+      RUN_MODE: ttyd
+      TZ: Europe/Berlin
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - wget -q -O /dev/null http://127.0.0.1:7681/ || exit 1
+      timeout: 5s
+      interval: 30s
+      retries: 5
+      start_period: 20s
+    image: ghcr.io/coolcow/gemini:latest@sha256:3679371e180182602094c799a833f3a4d7066d932aa3b5db51c0c1f994cf2b0d
+    network_mode: bridge
+    ports:
+      - target: 7681
+        published: "7682"
+        protocol: tcp
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    stdin_open: true
+    tty: true
+    volumes:
+      - type: bind
+        source: /DATA/AppData/gemini-cli/home
+        target: /home/gemini
+      - type: bind
+        source: /DATA/AppData/gemini-cli/workspace
+        target: /workspace
+      - type: bind
+        source: /media/ZimaOS-HD
+        target: /zimaos
+    working_dir: /workspace
+
+x-casaos:
+  icon: https://cdn.jsdelivr.net/gh/ovi1337/zimaos-appstore@gh-pages/apps/com.google.gemini-cli/assets/icon.svg
+  id: com.google.gemini-cli
+  index: /
+  main: gemini-cli
+  port_map: "7682"
+  scheme: http
+  title:
+    custom: Gemini CLI
+    de_DE: Gemini CLI
+    en_US: Gemini CLI

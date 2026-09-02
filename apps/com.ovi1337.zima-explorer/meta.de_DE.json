@@ -1,0 +1,9 @@
+{
+  "id": "com.ovi1337.zima-explorer",
+  "title": "Zima Explorer",
+  "tagline": "Moderner Zwei-Spalten-Dateimanager für ZimaOS",
+  "description": "Ein moderner und leistungsstarker Dateimanager für ZimaOS mit:\n- Zwei-Spalten-Explorer für einfache Dateioperationen\n- Drag & Drop mit Mehrfachauswahl\n- Integrierter Medien-Viewer (Bilder, Video, Audio, PDF, Text)\n- Upload, Download, Umbenennen, Löschen, Kopieren, Verschieben\n- Datenträger-Browser und detaillierte Datei-Statistiken\n",
+  "tips": {
+    "before_install": "Empfehlung: GHCR-Package auf Public stellen für reibungslose Installation aus diesem Store.\nSiehe README in diesem Repository.\n"
+  }
+}

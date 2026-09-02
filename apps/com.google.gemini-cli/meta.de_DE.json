@@ -1,0 +1,9 @@
+{
+  "id": "com.google.gemini-cli",
+  "title": "Gemini CLI",
+  "tagline": "Gemini CLI im Web-Terminal",
+  "description": "Startet die Google Gemini CLI in einem ttyd-Web-Terminal, direkt aus dem ZimaOS-Dashboard.",
+  "tips": {
+    "before_install": "1. API-Key unter https://aistudio.google.com/app/apikeys erzeugen.\n2. DEIN_GEMINI_API_KEY_HIER in GEMINI_API_KEY ersetzen.\n3. http://<ZimaOS-IP>:7681 öffnen und `gemini` eingeben.\n4. Port 7681 nicht ungeschützt ins Internet legen.\n"
+  }
+}

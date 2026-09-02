@@ -1,0 +1,70 @@
+name: dsh-harness
+
+networks:
+  default:
+    name: dsh-harness_default
+    ipam: {}
+    external: false
+
+services:
+  dsh:
+    command:
+    container_name: dsh-harness
+    deploy:
+      resources:
+        limits:
+          memory: 4GB
+          cpus: "2.00"
+        reservations:
+          memory: 512MB
+          cpus: "0.25"
+      placement: {}
+    entrypoint:
+    environment:
+      OPENAI_API_KEY: ollama-local-dummy
+      # Optional: API Keys & Auth
+      # DEEPSEEK_API_KEY: your_deepseek_key
+      # PROXY_USERNAME: your_proxy_username
+      # PROXY_PASSWORD: your_proxy_password
+      DSH_WORKSPACE: /workspace/Documents
+    image: ghcr.io/src-one/deepseek-harness:latest
+    networks:
+      - default
+    ports:
+      - mode: ingress
+        target: 3080
+        published: "3080"
+        protocol: tcp
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /DATA/AppData/dsh-harness
+        target: /root/.dsh
+      - type: bind
+        source: /DATA/Documents
+        target: /workspace/Documents
+      - type: bind
+        source: /DATA/Downloads
+        target: /workspace/Downloads
+      - type: bind
+        source: /DATA/Media
+        target: /workspace/Media
+      - type: bind
+        source: /DATA/Gallery
+        target: /workspace/Gallery
+      - type: bind
+        source: /media/ZimaOS-HD
+        target: /zimaos
+
+x-casaos:
+  icon: https://cdn.jsdelivr.net/gh/ovi1337/zimaos-appstore@gh-pages/apps/org.icewhale.dsh-harness/assets/icon.png
+  id: org.icewhale.dsh-harness
+  index: /
+  main: dsh
+  port_map: "3080"
+  scheme: http
+  title:
+    custom: DeepSeekHarness
+    en_US: DeepSeekHarness
+    de_DE: DeepSeekHarness
+  version: 0.1.2-alpha.2

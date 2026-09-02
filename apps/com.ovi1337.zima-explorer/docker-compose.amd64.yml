@@ -1,0 +1,39 @@
+# Zima Explorer - Docker Compose for ZimaOS App Store
+# This compose is intended to be used via a 3rd-party ZimaOS App Store.
+
+name: zima-explorer
+
+services:
+  zima-explorer:
+    image: ghcr.io/ovi1337/zima-file-manager:latest@sha256:4faf2f1dfca73c5b87a83ae228e7332cddd24641d0414f83255329e476a0abc7
+    container_name: zima-explorer
+    restart: unless-stopped
+
+    ports:
+      - "8088:80"
+
+    environment:
+      - PORT=80
+      # Adjust allowed roots to your ZimaOS storage layout
+      - ALLOWED_ROOTS=/media,/DATA,/mnt,/home,/root
+
+    volumes:
+      # Mount your actual storage locations (read-write recommended)
+      - /media:/media:rslave
+      - /DATA:/DATA:rslave
+      - /mnt:/mnt:rslave
+
+# =====================================================
+# ZimaOS / CasaOS App Metadata
+# =====================================================
+x-casaos:
+  id: com.ovi1337.zima-explorer
+  main: zima-explorer
+  port_map: "8088"
+  scheme: http
+  index: /
+  version: 1.0.0
+  title:
+    en_US: Zima Explorer
+    de_DE: Zima Explorer
+  icon: https://cdn.jsdelivr.net/gh/ovi1337/zimaos-appstore@gh-pages/apps/com.ovi1337.zima-explorer/assets/icon.png

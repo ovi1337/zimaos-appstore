@@ -1,0 +1,9 @@
+{
+  "id": "org.icewhale.dsh-harness",
+  "title": "DeepSeekHarness",
+  "tagline": "DeepSeek Harness mit Playwright Google-Websuche & Modell-Modi",
+  "description": "DeepSeek Harness (dsh) ist ein Open-Source-Agenten-Framework mit schlüsselloser Google-Websuche via Playwright und wählbaren Modell-Modi.",
+  "tips": {
+    "before_install": "- Setze deinen OPENAI_API_KEY oder DEEPSEEK_API_KEY falls benötigt.\n- Die Websuche funktioniert schlüssellos direkt über lokales Playwright Chromium.\n"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "version": 2,
+  "store_id": "ovi1337-zimaos-appstore",
+  "name": "ovi1337 App Store",
+  "description": "Curated 3rd-party App Store for ZimaOS and CasaOS featuring DeepSeek Harness, Zima Explorer and Gemini CLI.",
+  "maintainer": "ovi1337",
+  "url": "https://github.com/ovi1337/zimaos-appstore"
+}

@@ -1,0 +1,41 @@
+{
+  "architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "author": "src-one",
+  "category": "AI",
+  "description": "DeepSeek Harness (dsh) open-source agent harness with keyless Google Web Search via Playwright and Selectable Model Modes.",
+  "developer": "src-one / DeepSeek",
+  "docs": "https://github.com/src-one/deepseek-harness-docker",
+  "hostname": "",
+  "is_uncontrolled": false,
+  "repo": "https://github.com/src-one/deepseek-harness-docker",
+  "screenshot_link": [
+    "/apps/org.icewhale.dsh-harness/assets/screenshot-1.webp",
+    "/apps/org.icewhale.dsh-harness/assets/screenshot-2.webp",
+    "/apps/org.icewhale.dsh-harness/assets/screenshot-3.webp",
+    "/apps/org.icewhale.dsh-harness/assets/screenshot-4.webp"
+  ],
+  "support": "https://github.com/src-one/deepseek-harness-docker/issues",
+  "tagline": "DeepSeek Harness with Playwright Google Search & Model Modes",
+  "thumbnail": "/apps/org.icewhale.dsh-harness/assets/thumbnail.webp",
+  "tips": {
+    "before_install": "- Set your OPENAI_API_KEY or DEEPSEEK_API_KEY if needed.\n- Web search is powered keyless by local Playwright Chromium.\n"
+  },
+  "update_at": "2026-09-01T00:00:00",
+  "website": "https://github.com/src-one/deepseek-harness-docker",
+  "title": "DeepSeekHarness",
+  "release_note": "Updated to DeepSeek Harness 0.1.2-alpha.2 with integrated Playwright Google Web Search and Selectable Model Modes.",
+  "base_url": "https://cdn.jsdelivr.net/gh/ovi1337/zimaos-appstore@gh-pages",
+  "id": "org.icewhale.dsh-harness",
+  "version": "0.1.2-alpha.2",
+  "categories": [
+    "ai"
+  ],
+  "min_memory": 536870912,
+  "min_image_size": {
+    "amd64": 0,
+    "arm64": 0
+  }
+}

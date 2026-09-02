@@ -1,0 +1,19 @@
+{
+  "apps": [
+    {
+      "id": "com.google.gemini-cli",
+      "title": "Gemini CLI",
+      "tagline": "Gemini CLI im Web-Terminal"
+    },
+    {
+      "id": "com.ovi1337.zima-explorer",
+      "title": "Zima Explorer",
+      "tagline": "Moderner Zwei-Spalten-Dateimanager für ZimaOS"
+    },
+    {
+      "id": "org.icewhale.dsh-harness",
+      "title": "DeepSeekHarness",
+      "tagline": "DeepSeek Harness mit Playwright Google-Websuche & Modell-Modi"
+    }
+  ]
+}

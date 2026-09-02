@@ -1,0 +1,58 @@
+{
+  "architectures": [
+    "amd64"
+  ],
+  "author": "ovi1337",
+  "category": "Utilities",
+  "developer": "ovi1337",
+  "tagline": "Modern dual-pane file manager for ZimaOS",
+  "description": "A powerful, modern file manager for ZimaOS featuring:\n- Dual-pane explorer for easy file operations\n- Drag & drop with multi-select support\n- Built-in media viewer (images, video, audio, PDF, text)\n- Upload, download, rename, delete, copy, move\n- Volume browser and detailed file statistics\n",
+  "thumbnail": "/apps/com.ovi1337.zima-explorer/assets/filebrowser.webp",
+  "tips": {
+    "before_install": "Recommended: Make the GHCR package public for seamless installation from this store.\nSee the README in this repository for instructions.\n"
+  },
+  "ports": [
+    {
+      "container": "8088",
+      "description": {
+        "en_US": "Web Interface",
+        "de_DE": "Web-Oberfläche"
+      },
+      "protocol": "tcp"
+    }
+  ],
+  "volumes": [
+    {
+      "container": "/media",
+      "description": {
+        "en_US": "Main ZimaOS storage"
+      },
+      "host": "/media"
+    },
+    {
+      "container": "/DATA",
+      "description": {
+        "en_us": "ZimaOS internal data"
+      },
+      "host": "/DATA"
+    },
+    {
+      "container": "/mnt",
+      "description": {
+        "en_US": "Additional mounts"
+      },
+      "host": "/mnt"
+    }
+  ],
+  "title": "Zima Explorer",
+  "base_url": "https://cdn.jsdelivr.net/gh/ovi1337/zimaos-appstore@gh-pages",
+  "id": "com.ovi1337.zima-explorer",
+  "version": "1.0.0",
+  "categories": [
+    "utilities"
+  ],
+  "min_memory": 0,
+  "min_image_size": {
+    "amd64": 78016877
+  }
+}

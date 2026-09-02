@@ -1,0 +1,68 @@
+{
+  "version": 2,
+  "updated_at": "2026-09-02T00:01:08Z",
+  "app_count": 3,
+  "base_url": "https://cdn.jsdelivr.net/gh/ovi1337/zimaos-appstore@gh-pages",
+  "apps": [
+    {
+      "id": "com.google.gemini-cli",
+      "title": "Gemini CLI",
+      "tagline": "Gemini CLI in a browser terminal",
+      "category": "Developer",
+      "categories": [
+        "developer"
+      ],
+      "author": "self",
+      "developer": "Google / coolcow",
+      "architectures": [
+        "amd64"
+      ],
+      "icon": "/apps/com.google.gemini-cli/assets/icon.svg",
+      "thumbnail": "",
+      "compose_url": "/apps/com.google.gemini-cli/docker-compose.yml",
+      "meta_url": "/apps/com.google.gemini-cli/meta.json",
+      "content_hash": "ffaebb5c"
+    },
+    {
+      "id": "com.ovi1337.zima-explorer",
+      "title": "Zima Explorer",
+      "tagline": "Modern dual-pane file manager for ZimaOS",
+      "category": "Utilities",
+      "categories": [
+        "utilities"
+      ],
+      "author": "ovi1337",
+      "developer": "ovi1337",
+      "architectures": [
+        "amd64"
+      ],
+      "icon": "/apps/com.ovi1337.zima-explorer/assets/icon.png",
+      "thumbnail": "/apps/com.ovi1337.zima-explorer/assets/filebrowser.webp",
+      "compose_url": "/apps/com.ovi1337.zima-explorer/docker-compose.yml",
+      "meta_url": "/apps/com.ovi1337.zima-explorer/meta.json",
+      "content_hash": "3189598b",
+      "version": "1.0.0"
+    },
+    {
+      "id": "org.icewhale.dsh-harness",
+      "title": "DeepSeekHarness",
+      "tagline": "DeepSeek Harness with Playwright Google Search & Model Modes",
+      "category": "AI",
+      "categories": [
+        "ai"
+      ],
+      "author": "src-one",
+      "developer": "src-one / DeepSeek",
+      "architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "icon": "/apps/org.icewhale.dsh-harness/assets/icon.png",
+      "thumbnail": "/apps/org.icewhale.dsh-harness/assets/thumbnail.webp",
+      "compose_url": "/apps/org.icewhale.dsh-harness/docker-compose.yml",
+      "meta_url": "/apps/org.icewhale.dsh-harness/meta.json",
+      "content_hash": "7dc8320f",
+      "version": "0.1.2-alpha.2"
+    }
+  ]
+}
