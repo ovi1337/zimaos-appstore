@@ -30,7 +30,7 @@ jobs:
         with:
           source: .
           output: dist
-          base-url: https://ovi1337.github.io/zimaos-appstore
+          base-url: https://cdn.jsdelivr.net/gh/ovi1337/zimaos-appstore@gh-pages
 
       - name: Ensure root store.json in dist
         run: |
